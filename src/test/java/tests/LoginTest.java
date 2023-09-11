@@ -14,7 +14,6 @@ public class LoginTest extends BaseTest {
                 ).isPageOpened()
         );
     }
-
     @Test
     public void incorrectEmailLoginTest() {
         Assert.assertEquals(
@@ -22,7 +21,6 @@ public class LoginTest extends BaseTest {
                 "Email/Login or Password is incorrect. Please try again."
         );
     }
-
     @Test
     public void incorrectPswLoginTest() {
         Assert.assertEquals(
@@ -30,7 +28,6 @@ public class LoginTest extends BaseTest {
                 "Email/Login or Password is incorrect. Please try again.",
                 "Неверное сообщение об ошибке");
     }
-
     @Test
     public void shortPswLoginTest() {
         Assert.assertEquals(
