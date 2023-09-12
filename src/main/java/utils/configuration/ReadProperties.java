@@ -2,7 +2,6 @@ package utils.configuration;
 
 import java.io.IOException;
 import java.util.Properties;
-
 public class ReadProperties {
     private static final Properties properties;
 
@@ -14,7 +13,6 @@ public class ReadProperties {
             e.printStackTrace();
         }
     }
-
     public static String getUrl() {
         return properties.getProperty("url");
     }
