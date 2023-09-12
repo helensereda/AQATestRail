@@ -2,6 +2,7 @@ package utils.configuration;
 
 import java.io.IOException;
 import java.util.Properties;
+
 public class ReadProperties {
     private static final Properties properties;
 
@@ -13,6 +14,7 @@ public class ReadProperties {
             e.printStackTrace();
         }
     }
+
     public static String getUrl() {
         return properties.getProperty("url");
     }
@@ -29,15 +31,10 @@ public class ReadProperties {
         return properties.getProperty("password");
     }
 
-    public static String firstname() {
-        return properties.getProperty("firstname");
+    public static int timeout() {
+        return Integer.parseInt(properties.getProperty("timeout"));
     }
-    public static String lastname() {
-        return properties.getProperty("lastname");
-    }
-    public static String code() {
-        return properties.getProperty("code");
-    }
+
     public static boolean isHeadless() {
         return properties.getProperty("headless").equalsIgnoreCase("true");
     }
