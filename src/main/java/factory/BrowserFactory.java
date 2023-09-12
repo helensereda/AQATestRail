@@ -38,7 +38,6 @@ public class BrowserFactory {
 
         return this.driver;
     }
-
     public ChromeOptions getChromeOptions() {
         ChromeOptions chromeOptions = new ChromeOptions();
 
@@ -51,7 +50,6 @@ public class BrowserFactory {
 
         return chromeOptions;
     }
-
     public FirefoxOptions getFirefoxOptions() {
         FirefoxOptions firefoxOptions = new FirefoxOptions();
 
