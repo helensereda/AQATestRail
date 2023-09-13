@@ -9,6 +9,8 @@ public class AddTestRunPage extends BasePage {
     private final By headerTitleLabelLocator = By.xpath("//div[contains(@class, 'content-header-title') and contains(text(), 'Add Test Run')]");
     private final By addFileLocator = By.id("entityAttachmentListEmptyIcon");
     private final By addNewLocator = By.id("libraryAddAttachment");
+    private final By buttonSubmitLocator = (By.id("attachmentNewSubmit"));
+    private final By labelUploadedLocator = By.id("attachment-1f014b13-5656-4ecc-84c3-234c571e6c12");
     public AddTestRunPage(WebDriver driver) {
         super(driver);
     }
@@ -33,6 +35,12 @@ public class AddTestRunPage extends BasePage {
     }
     public WebElement getNewButton() {
         return driver.findElement(addNewLocator);
+    }
+    public WebElement getButtonSubmit() {
+        return waitService.waitForExists(buttonSubmitLocator);
+    }
+    public WebElement getLabelUploaded() {
+        return waitService.waitForExists(labelUploadedLocator);
     }
     // Блок комплексных методов
     public void clickButton() {
