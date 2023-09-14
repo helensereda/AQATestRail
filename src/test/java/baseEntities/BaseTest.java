@@ -6,10 +6,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import pages.AddTestRunPage;
 import pages.TestPage;
-import steps.AddTestRunStep;
-import steps.DashboardStep;
-import steps.LoginStep;
-import steps.TestStep;
+import steps.*;
 import utils.configuration.ReadProperties;
 
 public class BaseTest {
@@ -19,6 +16,7 @@ public class BaseTest {
     protected DashboardStep dashboardStep;
     protected TestStep testStep;
     protected AddTestRunStep addTestRunStep;
+    protected SettingsStep settingsStep;
     @BeforeMethod
     public void setUp() {
         BrowserFactory browserFactory = new BrowserFactory();
@@ -28,6 +26,7 @@ public class BaseTest {
         dashboardStep = new DashboardStep(driver);
         testStep = new TestStep(driver);
         addTestRunStep = new AddTestRunStep(driver);
+        settingsStep = new SettingsStep(driver);
 
 
         driver.get(ReadProperties.getUrl());
