@@ -13,11 +13,20 @@ import services.WaitService;
 import utils.configuration.ReadProperties;
 import org.openqa.selenium.WebElement;
 
+
 public class PositiveTest extends BaseTest {
     @Test
     public void BoundaryTest() throws InterruptedException{
+        loginStep.successLogin(
+                ReadProperties.username(),
+                ReadProperties.password()
+        );
 
-
+        SettingsPage settingsPage = new SettingsPage(driver);
+        settingsPage.openPageByUrl();
+        Assert.assertEquals(
+                settingsStep.successChangePsw("World@4r").getSuccessTextElement().getText(),
+                "Successfully saved your settings.");
     }
 
     @Test
