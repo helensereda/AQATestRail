@@ -8,12 +8,14 @@ import org.openqa.selenium.WebElement;
 public class SettingsPage extends BasePage {
     private final static String pagePath = "/index.php?/mysettings";
     // Блок описания локаторов для элементов
+    private final By headerTitleLabelLocator = By.xpath("//div[contains(@class, 'ui-dialog-title') and contains(text(), 'Enter Password')]");
     private final By pswInputLocator = By.id("password");
     private final By confirmInputLocator = By.id("confirm");
     private final By saveButtonLocator = By.id("accept");
     private final By enterPswInputLocator = By.id("userPassword");
     private final By okButtonLocator = By.id("userPasswordSubmit");
     private final By successTextLocator = By.className("message-success");
+    private final By errorTextLocator = By.id("userPasswordErrors");
     // Блок инициализации
     public SettingsPage(WebDriver driver) {
         super(driver);
@@ -21,7 +23,7 @@ public class SettingsPage extends BasePage {
 
     @Override
     protected By getPageIdentifier() {
-        return null;
+        return headerTitleLabelLocator;
     }
 
     @Override
@@ -54,12 +56,24 @@ public class SettingsPage extends BasePage {
     public WebElement getSuccessTextElement() {
         return driver.findElement(successTextLocator);
     }
+
+
+    public WebElement getErrorTextElement() {
+        return driver.findElement(errorTextLocator);
+    }
     //Блок комплексных методов
-    public void changePsw(String psw) {
+    public void changePsw(String psw) throws InterruptedException {
         getPswInput().sendKeys(psw);
         getConfirmInput().sendKeys(psw);
         getSaveButton().click();
         getEnterPswInput().sendKeys(psw);
+        Thread.sleep(5000);
         getOkButton().click();
+        Thread.sleep(5000);
+    }
+    public void showWindow(String psw){
+        getPswInput().sendKeys(psw);
+        getConfirmInput().sendKeys(psw);
+        getSaveButton().click();
     }
 }
