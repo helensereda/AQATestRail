@@ -11,6 +11,8 @@ public class DashboardPage extends BasePage {
     // Блок описания локаторов для элементов
     private final By headerTitleLabelLocator = By.xpath("//div[contains(@class, 'content-header-title') and contains(text(), 'All Projects')]");
     private final By testLocator = By.xpath("//*[@id=\"project-2\"]/div[2]/div[1]/a");
+    private final By addButtonLocator = By.id("sidebar-projects-add");
+
     public TopMenuPage topMenuPage;
     public SideMenuPage sideMenuPage;
 
@@ -49,8 +51,14 @@ public class DashboardPage extends BasePage {
     public WebElement getClickButton() {
         return driver.findElement(testLocator);
     }
+    public WebElement getAddProjectButton() {
+        return driver.findElement(addButtonLocator);
+    }
     // Блок комплексных методов
     public void clickButton() {
         getClickButton().click();
+    }
+    public void clickAddProjectButton() {
+        getAddProjectButton().click();
     }
 }

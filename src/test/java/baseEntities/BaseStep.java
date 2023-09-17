@@ -11,6 +11,8 @@ public class BaseStep {
     protected TestPage testPage;
     protected AddTestRunPage addTestRunPage;
     protected SettingsPage settingsPage;
+    protected AddProjectPage addProjectPage;
+    protected ProjectsPage projectsPage;
 
     public BaseStep(WebDriver driver) {
         this.driver = driver;
@@ -20,5 +22,7 @@ public class BaseStep {
         testPage= new TestPage(driver);
         addTestRunPage = new AddTestRunPage(driver);
         settingsPage = new SettingsPage(driver);
+        addProjectPage = new AddProjectPage(driver);
+        projectsPage = new ProjectsPage(driver);
     }
 }

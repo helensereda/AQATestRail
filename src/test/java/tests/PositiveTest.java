@@ -1,6 +1,8 @@
 package tests;
 
 import baseEntities.BaseTest;
+import elements.TableCell;
+import models.Project;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -8,7 +10,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import pages.AddProjectPage;
 import pages.AddTestRunPage;
+import pages.ProjectsPage;
 import pages.SettingsPage;
 import services.WaitService;
 import utils.configuration.ReadProperties;
@@ -18,7 +22,8 @@ import java.time.Duration;
 
 
 public class PositiveTest extends BaseTest {
-    @Test
+    //тест на проверку поля для ввода на граничные значения
+    @Test  (groups = "regression")
     public void BoundaryTest() throws InterruptedException{
         loginStep.successLogin(
                 ReadProperties.username(),
@@ -36,8 +41,9 @@ public class PositiveTest extends BaseTest {
                 settingsStep.successChangePsw("Worl").getErrorTextElement().getText(),
                 "Field Password is too short (5 characters required).");
     }
-    @Test
-    public void PopUpWindow() {
+    //тест на проверку всплывающего сообщения
+    @Test (groups = "regression")
+    public void PopUpWindowTest() {
         loginStep.successLogin(
                 ReadProperties.username(),
                 ReadProperties.password()
@@ -48,8 +54,38 @@ public class PositiveTest extends BaseTest {
         settingsPage.showWindow("World@4r");
         Assert.assertTrue(driver.findElement(By.id("ui-dialog-title-userPasswordDialog")).isDisplayed());
     }
+    //тест на создание сущности
+    @Test (groups = {"smoke", "regression"})
+    public void AddProjectBuilderTest() throws InterruptedException {
+        loginStep.successLogin(
+                ReadProperties.username(),
+                ReadProperties.password()
+        );
+        dashboardStep.addProject();
+        Project ProjectBuilder = new Project.Builder()
+                .withProjectName("Test")
+                .withAnnouncement("Test")
+                .build();
+        Thread.sleep(5000);
+       addProjectStep.clickButton();
+    }
+    //тест на удаление сущности
+    @Test (groups = {"smoke", "regression"})
+    public void deleteProjectTest() throws InterruptedException {
+        loginStep.successLogin(
+                ReadProperties.username(),
+                ReadProperties.password()
+        );
 
+        ProjectsPage projectsPage = new ProjectsPage(driver);
+        projectsPage.openPageByUrl();
 
+        TableCell cell = projectsPage.getProjectsTable().getCell("Project", 1);
+        cell.getDeleteLink().click();
+        Thread.sleep(3000);
+        projectStep.deleteProject();
+    }
+    //тест на загрузку файла
     @Test
     public void FileUploadTest() throws InterruptedException {
         Assert.assertTrue(

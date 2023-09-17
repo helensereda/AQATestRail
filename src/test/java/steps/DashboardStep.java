@@ -2,6 +2,7 @@ package steps;
 
 import baseEntities.BaseStep;
 import org.openqa.selenium.WebDriver;
+import pages.AddProjectPage;
 import pages.DashboardPage;
 import pages.TestPage;
 
@@ -14,5 +15,9 @@ public class DashboardStep extends BaseStep {
     public TestPage addCase() {
         dashboardPage.clickButton();
         return testPage;
+    }
+    public AddProjectPage addProject() {
+        dashboardPage.clickAddProjectButton();
+        return addProjectPage;
     }
 }
