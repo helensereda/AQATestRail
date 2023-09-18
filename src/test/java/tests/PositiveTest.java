@@ -85,6 +85,23 @@ public class PositiveTest extends BaseTest {
         Thread.sleep(3000);
         projectStep.deleteProject();
     }
+    //тест отображения диалогового окна
+    @Test
+    public void DisplayedDialogWindowTest() throws InterruptedException {
+
+        loginStep.successLogin(
+                ReadProperties.username(),
+                ReadProperties.password()
+        );
+
+        ProjectsPage projectsPage = new ProjectsPage(driver);
+        projectsPage.openPageByUrl();
+
+        TableCell cell = projectsPage.getProjectsTable().getCell("Project", 1);
+        cell.getDeleteLink().click();
+        Thread.sleep(3000);
+        projectsPage.isDialogTitleDisplayed();
+    }
     //тест на загрузку файла
     @Test
     public void FileUploadTest() throws InterruptedException {

@@ -29,6 +29,12 @@ public class AddTestRunPage extends BasePage {
     protected By getTitle1() {
         return headerTitleLabelLocator;
     }
+
+    @Override
+    protected By getDialogTitle() {
+        return null;
+    }
+
     // Блок атомарных методов
     public WebElement getFileButton() {
         return driver.findElement(addFileLocator);

@@ -2,7 +2,6 @@ package pages;
 
 import baseEntities.BasePage;
 import elements.Table;
-import models.Project;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -12,6 +11,7 @@ public class ProjectsPage extends BasePage {
 
     // Блок описания локаторов для элементов
     private final By headerTitleLabelLocator = By.className("page_title");
+    private final By dialogTitleLabelLocator = By.className("ui-dialog-title");
     private final By projectsTableLocator = By.cssSelector("#content-inner table");
     private final By checkboxLocator = By.xpath("//*[@id=\"deleteDialog\"]/div[2]/div/div");
     private final By deleteButtonLocator = By.xpath("//*[@id=\"deleteDialog\"]/div[3]/a[1]");
@@ -44,7 +44,9 @@ public class ProjectsPage extends BasePage {
     public WebElement getHeaderTitle() {
         return driver.findElement(headerTitleLabelLocator);
     }
-
+    public By getDialogTitle() {
+        return dialogTitleLabelLocator;
+    }
     public WebElement getCheckbox() {
         return driver.findElement(checkboxLocator);
     }

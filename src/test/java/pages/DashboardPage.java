@@ -13,14 +13,13 @@ public class DashboardPage extends BasePage {
     private final By testLocator = By.xpath("//*[@id=\"project-2\"]/div[2]/div[1]/a");
     private final By addButtonLocator = By.id("sidebar-projects-add");
 
-    public TopMenuPage topMenuPage;
+
     public SideMenuPage sideMenuPage;
 
     // Блок инициализации
     public DashboardPage(WebDriver driver) {
         super(driver);
 
-        topMenuPage = new TopMenuPage(driver);
         sideMenuPage = new SideMenuPage(driver);
     }
 
@@ -36,6 +35,11 @@ public class DashboardPage extends BasePage {
 
     @Override
     protected By getTitle1() {
+        return null;
+    }
+
+    @Override
+    protected By getDialogTitle() {
         return null;
     }
 

@@ -29,6 +29,11 @@ public class TestPage extends BasePage {
         return null;
     }
 
+    @Override
+    protected By getDialogTitle() {
+        return null;
+    }
+
     public WebElement getClickButton() {
         return driver.findElement(addTestRunLocator);
     }

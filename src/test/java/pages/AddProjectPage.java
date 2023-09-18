@@ -36,6 +36,11 @@ public class AddProjectPage extends BasePage {
         return null;
     }
 
+    @Override
+    protected By getDialogTitle() {
+        return null;
+    }
+
     public void openPageByUrl() {
         super.openPageByUrl(pagePath);
     }

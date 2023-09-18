@@ -20,7 +20,7 @@ public abstract class BasePage {
     protected abstract By getPageIdentifier();
     protected abstract By getTitle();
     protected abstract By getTitle1();
-
+    protected abstract By getDialogTitle();
     public boolean isPageOpened() {
         return driver.findElement(getPageIdentifier()).isDisplayed();
     }
@@ -31,5 +31,9 @@ public abstract class BasePage {
     public boolean getTitleCase() throws InterruptedException {
         Thread.sleep(2000);
         return driver.findElement(getTitle1()).isDisplayed();
+    }
+    public boolean isDialogTitleDisplayed() throws InterruptedException {
+        Thread.sleep(2000);
+        return driver.findElement(getDialogTitle()).isDisplayed();
     }
 }

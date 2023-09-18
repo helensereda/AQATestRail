@@ -35,6 +35,11 @@ public class LoginPage extends BasePage {
         return null;
     }
 
+    @Override
+    protected By getDialogTitle() {
+        return null;
+    }
+
     // Блок атомарных методов
     public WebElement getEmailInput() {
         return driver.findElement(emailInputLocator);

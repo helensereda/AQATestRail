@@ -25,4 +25,9 @@ public class SideMenuPage extends BasePage {
     protected By getTitle1() {
         return null;
     }
+
+    @Override
+    protected By getDialogTitle() {
+        return null;
+    }
 }

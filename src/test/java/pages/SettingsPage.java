@@ -35,6 +35,12 @@ public class SettingsPage extends BasePage {
     protected By getTitle1() {
         return null;
     }
+
+    @Override
+    protected By getDialogTitle() {
+        return null;
+    }
+
     public void openPageByUrl() {
         super.openPageByUrl(pagePath);
     }
