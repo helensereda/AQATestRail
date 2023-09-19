@@ -40,6 +40,13 @@ public class PositiveTest extends BaseTest {
 
                 settingsStep.successChangePsw("Worl").getErrorTextElement().getText(),
                 "Field Password is too short (5 characters required).");
+        Assert.assertEquals(
+
+                settingsStep.incorrectChangePsw("1121231121211212311212112123112121121231121211" +
+                        "21231121211212311212112123112121121231121211212311212112123112121121231" +
+                        "121211212311").getErrorTextElement().getText(),
+                "Field Password is too long (128 characters at most).");
+
     }
     //тест на проверку всплывающего сообщения
     @Test (groups = "regression")

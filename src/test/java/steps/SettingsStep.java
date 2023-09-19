@@ -22,5 +22,10 @@ public class SettingsStep extends BaseStep {
 
         return settingsPage;
     }
+    public SettingsPage incorrectChangePsw(String psw) throws InterruptedException {
+        settingsPage.changePsw(psw);
+
+        return settingsPage;
+    }
 }
 
