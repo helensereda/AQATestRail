@@ -39,4 +39,10 @@ public class negativeTests extends BaseTest {
                 "Field Password is too long (128 characters at most).");
 
     }
-}
+
+        @Test
+        public void screenShortTest() {
+            Assert.assertTrue(false);
+        }
+    }
+
