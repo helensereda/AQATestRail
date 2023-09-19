@@ -10,7 +10,6 @@ import org.testng.annotations.Listeners;
 import steps.*;
 import utils.configuration.ReadProperties;
 
-@Listeners(InvokedListener.class)
 public class BaseTest {
     protected WebDriver driver;
 
