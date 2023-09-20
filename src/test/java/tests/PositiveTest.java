@@ -126,17 +126,10 @@ public class PositiveTest extends BaseTest {
                 addTestRunStep.addFile();
         WaitService waitService = new WaitService(driver);
         AddTestRunPage addTestRunPage = new AddTestRunPage(driver);
-        WebElement fileUploadElement = waitService.waitForExists(By.xpath("//*[@id=\"libraryAddAttachment\"]"));
+        WebElement fileUploadElement = waitService.waitForExists(By.xpath("/html/body/input[2]"));
         String pathToFile = PositiveTest.class.getClassLoader().getResource("download.jpeg").getPath();
         fileUploadElement.sendKeys(pathToFile.substring(1,pathToFile.length()));
         addTestRunPage.getButtonSubmit().click();
         Assert.assertEquals("download.jpeg",addTestRunPage.getLabelUploaded().getText());
-    //    Thread.sleep(3000);
-    //    WebElement browse = driver.findElement(By.xpath("//*[@id=\"libraryAddAttachment\"]"));
-    //    browse.sendKeys(pathToFile);
-    }
-    @Test
-    public void FileUpload2Test() throws InterruptedException {
-        String pathToFile = PositiveTest.class.getClassLoader().getResource("download.jpeg").getPath();
     }
 }
