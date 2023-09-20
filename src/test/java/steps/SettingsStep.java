@@ -12,15 +12,28 @@ public class SettingsStep extends BaseStep {
     }
 
     public SettingsPage incorrectChangePsw(String psw) throws InterruptedException {
-        settingsPage.changePsw(psw);
+        public SettingsPage successChangePsw(String psw) throws InterruptedException {
+            settingsPage.changePsw(psw);
 
-        return settingsPage;
-    }
+            return settingsPage;
+        }
 
-    public SettingsPage showWindow(String psw)  {
-        settingsPage.showWindow(psw);
+        public SettingsPage showWindow(String psw){
+            settingsPage.showWindow(psw);
 
-        return settingsPage;
+            return settingsPage;
+        }
+
+        public SettingsPage incorrectChangePsw(String psw) throws InterruptedException {
+            settingsPage.changePsw(psw);
+
+            return settingsPage;
+        }
+        public SettingsPage changePswWithLimited(String psw) throws InterruptedException {
+            settingsPage.changePswWithLimited(psw);
+
+            return settingsPage;
+        }
     }
 }
 

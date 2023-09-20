@@ -13,14 +13,12 @@ public class DashboardPage extends BasePage {
     private final By testLocator = By.xpath("//*[@id=\"project-2\"]/div[2]/div[1]/a");
     private final By addButtonLocator = By.id("sidebar-projects-add");
 
-
-
-
+    public SideMenuPage sideMenuPage;
     // Блок инициализации
     public DashboardPage(WebDriver driver) {
         super(driver);
 
-
+        sideMenuPage = new SideMenuPage(driver);
     }
 
     @Override
