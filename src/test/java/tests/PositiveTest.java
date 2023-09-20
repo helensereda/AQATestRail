@@ -130,6 +130,7 @@ public class PositiveTest extends BaseTest {
         String pathToFile = PositiveTest.class.getClassLoader().getResource("download.jpeg").getPath();
         fileUploadElement.sendKeys(pathToFile.substring(1,pathToFile.length()));
         addTestRunPage.getButtonSubmit().click();
-        Assert.assertEquals("download.jpeg",addTestRunPage.getLabelUploaded().getText());
+        Thread.sleep(3000);
+        Assert.assertTrue(driver.findElement(By.id("libraryDeleteAttachment")).isDisplayed());
     }
 }
