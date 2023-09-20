@@ -73,6 +73,7 @@ public class PositiveTest extends BaseTest {
                 .withProjectName("Test")
                 .withAnnouncement("Test")
                 .build();
+        new AddProjectPage(driver).addProject(ProjectBuilder);
         Thread.sleep(5000);
        addProjectStep.clickButton();
     }
@@ -127,11 +128,15 @@ public class PositiveTest extends BaseTest {
         AddTestRunPage addTestRunPage = new AddTestRunPage(driver);
         WebElement fileUploadElement = waitService.waitForExists(By.xpath("//*[@id=\"libraryAddAttachment\"]"));
         String pathToFile = PositiveTest.class.getClassLoader().getResource("download.jpeg").getPath();
-    //    fileUploadElement.sendKeys(pathToFile.substring(1,pathToFile.length()));
-    //    addTestRunPage.getButtonSubmit().click();
-    //    Assert.assertEquals("download.jpeg",addTestRunPage.getLabelUploaded().getText());
+        fileUploadElement.sendKeys(pathToFile.substring(1,pathToFile.length()));
+        addTestRunPage.getButtonSubmit().click();
+        Assert.assertEquals("download.jpeg",addTestRunPage.getLabelUploaded().getText());
     //    Thread.sleep(3000);
     //    WebElement browse = driver.findElement(By.xpath("//*[@id=\"libraryAddAttachment\"]"));
     //    browse.sendKeys(pathToFile);
+    }
+    @Test
+    public void FileUpload2Test() throws InterruptedException {
+        String pathToFile = PositiveTest.class.getClassLoader().getResource("download.jpeg").getPath();
     }
 }

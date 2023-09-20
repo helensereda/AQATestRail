@@ -20,17 +20,17 @@ public class Project {
             this.newProject = new Project();
         }
         public Builder withProjectName(String projectName) {
-            newProject.name = projectName;
+            this.newProject.name = projectName;
             return this;
         }
 
         public Builder withAnnouncement(String announcement) {
-            newProject.announcement = announcement;
+            this.newProject.announcement = announcement;
             return this;
         }
 
         public Project build() {
-            return newProject;
+            return this.newProject;
         }
     }
 
