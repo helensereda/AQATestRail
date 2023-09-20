@@ -127,7 +127,6 @@ public class PositiveTest extends BaseTest {
         AddTestRunPage addTestRunPage = new AddTestRunPage(driver);
         WebElement fileUploadElement = waitService.waitForExists(By.xpath("//*[@id=\"libraryAddAttachment\"]"));
         String pathToFile = PositiveTest.class.getClassLoader().getResource("download.jpeg").getPath();
-        System.out.println(pathToFile);
     //    fileUploadElement.sendKeys(pathToFile.substring(1,pathToFile.length()));
     //    addTestRunPage.getButtonSubmit().click();
     //    Assert.assertEquals("download.jpeg",addTestRunPage.getLabelUploaded().getText());
