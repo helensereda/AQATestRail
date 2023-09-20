@@ -82,4 +82,10 @@ public class SettingsPage extends BasePage {
         getConfirmInput().sendKeys(psw);
         getSaveButton().click();
     }
+    public void changePswWithLimited(String psw) throws InterruptedException {
+        getEnterPswInput().sendKeys(psw);
+        Thread.sleep(5000);
+        getOkButton().click();
+        Thread.sleep(5000);
+    }
 }
