@@ -46,8 +46,6 @@ public class BaseTest {
         driver.quit();
     }
 
-    protected SettingsStep settingsStep;
-
     @BeforeMethod
     public void setUp(ITestContext iTestContext) {
         BrowserFactory browserFactory = new BrowserFactory();
