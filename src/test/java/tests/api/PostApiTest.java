@@ -10,6 +10,5 @@ public class PostApiTest extends BaseApiTest {
     @Test
     public void addMilestoneTest() {
         String endpoint = "/index.php?/api/v2/add_milestone";
-
     }
 }
