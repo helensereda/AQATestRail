@@ -6,7 +6,7 @@ import org.apache.logging.log4j.Logger;
 import org.testng.annotations.Test;
 
 public class PostApiTest extends BaseApiTest {
-    static Logger logger = LogManager.getLogger(BaseApiTest.class);
+    static Logger logger = LogManager.getLogger(PostApiTest.class);
     @Test
     public void addMilestoneTest() {
         String endpoint = "/index.php?/api/v2/add_milestone";
