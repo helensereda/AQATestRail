@@ -12,7 +12,6 @@ public class BaseStep {
     protected SettingsPage settingsPage;
     protected TestPage testPage;
     protected AddTestRunPage addTestRunPage;
-    protected SettingsPage settingsPage;
     protected AddProjectPage addProjectPage;
     protected ProjectsPage projectsPage;
 

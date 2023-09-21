@@ -32,29 +32,5 @@ public class SettingsStep extends BaseStep {
 
         return settingsPage;
     }
-    public SettingsPage incorrectChangePsw(String psw) throws InterruptedException {
-        public SettingsPage successChangePsw(String psw) throws InterruptedException {
-            settingsPage.changePsw(psw);
-
-            return settingsPage;
-        }
-
-        public SettingsPage showWindow(String psw){
-            settingsPage.showWindow(psw);
-
-            return settingsPage;
-        }
-
-        public SettingsPage incorrectChangePsw(String psw) throws InterruptedException {
-            settingsPage.changePsw(psw);
-
-            return settingsPage;
-        }
-        public SettingsPage changePswWithLimited(String psw) throws InterruptedException {
-            settingsPage.changePswWithLimited(psw);
-
-            return settingsPage;
-        }
-    }
 }
 
