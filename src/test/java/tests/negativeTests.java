@@ -44,5 +44,6 @@ public class negativeTests extends BaseTest {
         public void screenShortTest() {
             Assert.assertTrue(false);
         }
+
     }
 
