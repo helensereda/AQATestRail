@@ -37,4 +37,5 @@ public class InvokedListener implements IInvokedMethodListener {
     private static String saveTextLog(String message) {
         return message;
     }
+
 }
