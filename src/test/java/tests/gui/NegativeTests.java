@@ -40,10 +40,9 @@ public class NegativeTests extends BaseTest {
 
     }
 
-        @Test
-        public void screenShortTest() {
-            Assert.assertTrue(false);
-        }
-
+    @Test
+    public void screenShortTest() {
+        Assert.assertTrue(false);
     }
 
+}

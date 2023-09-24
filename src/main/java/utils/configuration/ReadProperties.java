@@ -13,6 +13,7 @@ public class ReadProperties {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
     }
 
     public static String getUrl() {
