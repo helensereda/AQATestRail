@@ -1,4 +1,4 @@
-package tests;
+package tests.gui;
 
 import baseEntities.BaseTest;
 import org.testng.Assert;
@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 import pages.SettingsPage;
 import utils.configuration.ReadProperties;
 
-public class negativeTests extends BaseTest {
+public class NegativeTests extends BaseTest {
 
     @Test
     public void incorrectDateTest() {
