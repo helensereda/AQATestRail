@@ -48,6 +48,7 @@ public class AddTestRunPage extends BasePage {
     }
     public WebElement getAttachmentSelected() {
         return waitService.waitForExists(attachmentSelectedLocator);
+    }
     public WebElement getLabelUploaded() {
         return waitService.waitForExists(labelUploadedLocator);
     }
