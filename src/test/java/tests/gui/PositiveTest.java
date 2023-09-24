@@ -6,6 +6,7 @@ import models.Project;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import pages.AddProjectPage;
 import pages.AddTestRunPage;
 import pages.ProjectsPage;
 import pages.SettingsPage;
@@ -31,11 +32,11 @@ public class PositiveTest extends BaseTest {
                 "Successfully saved your settings.");
         Assert.assertEquals(
 
-                settingsStep.successChangePsw("Worl").getErrorTextElement().getText(),
+                settingsStep.incorrectChangePsw("Worl").getErrorTextElement().getText(),
                 "Field Password is too short (5 characters required).");
         Assert.assertEquals(
 
-                settingsStep.incorrectChangePsw("1121231121211212311212112123112121121231121211" +
+                settingsStep.changePswWithLimited("1121231121211212311212112123112121121231121211" +
                         "21231121211212311212112123112121121231121211212311212112123112121121231" +
                         "121211212311").getErrorTextElement().getText(),
                 "Field Password is too long (128 characters at most).");
@@ -66,6 +67,7 @@ public class PositiveTest extends BaseTest {
                 .withProjectName("Test")
                 .withAnnouncement("Test")
                 .build();
+        new AddProjectPage(driver).addProject(ProjectBuilder);
         Thread.sleep(5000);
        addProjectStep.clickButton();
     }
@@ -118,13 +120,11 @@ public class PositiveTest extends BaseTest {
                 addTestRunStep.addFile();
         WaitService waitService = new WaitService(driver);
         AddTestRunPage addTestRunPage = new AddTestRunPage(driver);
-        WebElement fileUploadElement = waitService.waitForExists(By.xpath("//*[@id=\"libraryAddAttachment\"]"));
+        WebElement fileUploadElement = waitService.waitForExists(By.xpath("/html/body/input[2]"));
         String pathToFile = PositiveTest.class.getClassLoader().getResource("download.jpeg").getPath();
-    //    fileUploadElement.sendKeys(pathToFile.substring(1,pathToFile.length()));
-    //    addTestRunPage.getButtonSubmit().click();
-    //    Assert.assertEquals("download.jpeg",addTestRunPage.getLabelUploaded().getText());
-    //    Thread.sleep(3000);
-    //    WebElement browse = driver.findElement(By.xpath("//*[@id=\"libraryAddAttachment\"]"));
-    //    browse.sendKeys(pathToFile);
+        fileUploadElement.sendKeys(pathToFile.substring(1,pathToFile.length()));
+        addTestRunPage.getButtonSubmit().click();
+        Thread.sleep(3000);
+        Assert.assertTrue(driver.findElement(By.id("libraryDeleteAttachment")).isDisplayed());
     }
 }
