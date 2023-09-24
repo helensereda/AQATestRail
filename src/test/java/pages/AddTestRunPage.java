@@ -50,15 +50,17 @@ public class AddTestRunPage extends BasePage {
         return waitService.waitForExists(buttonSubmitLocator);
     }
 
-//    public WebElement getAttachmentSelected(){
-//        return waitService.waitForExists(attachmentSelectedLocator);
-//        public WebElement getLabelUploaded() {
-//            return waitService.waitForExists(labelUploadedLocator);
-//        }
-        // Блок комплексных методов
-        public void clickButton() {
-            getFileButton().click();
-            //getNewButton().click();
-        }
+    public WebElement getAttachmentSelected() {
+        return waitService.waitForExists(attachmentSelectedLocator);
     }
 
+    public WebElement getLabelUploaded() {
+        return waitService.waitForExists(labelUploadedLocator);
+    }
+
+    // Блок комплексных методов
+    public void clickButton() {
+        getFileButton().click();
+        //getNewButton().click();
+    }
+}
