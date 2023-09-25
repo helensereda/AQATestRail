@@ -1,5 +1,4 @@
 package tests.gui;
-
 import baseEntities.BaseTest;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -7,7 +6,6 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.SettingsPage;
 import utils.configuration.ReadProperties;
-
 public class NegativeTests extends BaseTest {
     static Logger logger = LogManager.getLogger(NegativeTests.class);
 
