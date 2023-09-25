@@ -33,4 +33,36 @@ public class GetApiTest extends BaseApiTest {
                 .log().body()
                 .statusCode(HttpStatus.SC_OK);
     }
+    @Test
+    public void getAllProjects() {
+        String endpoint = "/index.php?/api/v2/get_projects";
+
+        logger.info(token);
+
+        given()
+                .auth().preemptive().basic(ReadProperties.username(), ReadProperties.password())
+                .header(HTTP.CONTENT_TYPE, ContentType.JSON)
+                .when()
+                .get(endpoint)
+                .then()
+                .log().status()
+                .log().body()
+                .statusCode(HttpStatus.SC_OK);
+    }
+    @Test
+    public void getNegativeTestForProject() {
+        String endpoint = "/index.php?/api/v2/get_projects";
+
+        logger.info(token);
+
+        given()
+                .auth().preemptive().basic(ReadProperties.username(), ReadProperties.password())
+                .header(HTTP.CONTENT_TYPE, ContentType.JSON)
+                .when()
+                .get(endpoint)
+                .then()
+                .log().status()
+                .log().body()
+                .statusCode(HttpStatus.SC_BAD_REQUEST);
+    }
 }
