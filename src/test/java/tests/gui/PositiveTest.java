@@ -2,7 +2,10 @@ package tests.gui;
 
 import baseEntities.BaseTest;
 import elements.TableCell;
+import lombok.extern.slf4j.Slf4j;
 import models.Project;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -11,11 +14,12 @@ import pages.AddTestRunPage;
 import pages.ProjectsPage;
 import pages.SettingsPage;
 import services.WaitService;
+import tests.api.GetApiTest;
 import utils.configuration.ReadProperties;
 import org.openqa.selenium.WebElement;
 
-
 public class PositiveTest extends BaseTest {
+    static Logger logger = LogManager.getLogger(PositiveTest.class);
     //тест на проверку поля для ввода на граничные значения
     @Test  (groups = "regression")
     public void BoundaryTest() throws InterruptedException{
@@ -63,10 +67,11 @@ public class PositiveTest extends BaseTest {
                 ReadProperties.password()
         );
         dashboardStep.addProject();
-        Project ProjectBuilder = new Project.Builder()
-                .withProjectName("Test")
-                .withAnnouncement("Test")
+        Project ProjectBuilder = Project.builder()
+                .name("Test")
+                .announcement("Test")
                 .build();
+        System.out.println(ProjectBuilder);
         new AddProjectPage(driver).addProject(ProjectBuilder);
         Thread.sleep(5000);
        addProjectStep.clickButton();
