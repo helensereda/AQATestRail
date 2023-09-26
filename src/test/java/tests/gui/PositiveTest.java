@@ -14,7 +14,6 @@ import pages.AddTestRunPage;
 import pages.ProjectsPage;
 import pages.SettingsPage;
 import services.WaitService;
-import tests.api.GetApiTest;
 import utils.configuration.ReadProperties;
 import org.openqa.selenium.WebElement;
 
