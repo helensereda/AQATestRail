@@ -16,12 +16,15 @@ public class PostApiTest extends BaseApiTest {
         String endpoint = "/index.php?/api/v2/add_milestone";
         Milestone expectedMilestone = new Milestone();
         expectedMilestone.setName("WP_Milestone_01");
+        expectedMilestone.setProject_id(1);
 
         given()
                 .body(String.format("{\n" +
                         "  \"name\": \"%s\",\n" +
+                        "  \"project_id\": \"%d\",\n" +
                         "}",
-                        expectedMilestone.getName()
+                        expectedMilestone.getName(),
+                        expectedMilestone.getProject_id()
                 ))
                 .when()
                 .post(endpoint)

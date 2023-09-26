@@ -5,4 +5,5 @@ import lombok.Data;
 @Data
 public class Milestone {
     private String name;
+    private int project_id;
 }
