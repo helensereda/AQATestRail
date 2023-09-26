@@ -65,8 +65,8 @@ public class AddProjectPage extends BasePage {
         getAnnouncement().sendKeys(value);
     }
     public void addProject(Project project) {
-        getName().sendKeys(project.getName());
-        getAnnouncement().sendKeys(project.getAnnouncement());
+        setName(project.getName());
+        setAnnouncement(project.getAnnouncement());
     }
     public void clickAddProject(){
         getAddProjectButton().click();
