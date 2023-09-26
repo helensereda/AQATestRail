@@ -14,30 +14,6 @@ import static org.hamcrest.Matchers.is;
 
 public class PostApiTest extends BaseApiTest {
     static Logger logger = LogManager.getLogger(PostApiTest.class);
-//    @Test
-//    public void addMilestoneTest() {
-//        int projectId=2;
-//        String endpoint = "/index.php?/api/v2/add_milestone/{project_id}";
-//        Milestone expectedMilestone = new Milestone();
-//        expectedMilestone.setName("WP_Milestone_01");
-//        expectedMilestone.setDue_on(1394596385);
-//
-//        given()
-//                .body(String.format("{\n" +
-//                        "  \"name\": \"%s\",\n" +
-//                                "  \"due_on\": \"%d\",\n" +
-//                        "}",
-//                        expectedMilestone.getName(),
-//                        expectedMilestone.getDue_on()
-//                ))
-//                .pathParam("project_id", projectId)
-//                .log().body()
-//                .when()
-//                .post(endpoint)
-//                .then()
-//                .log().body()
-//                .statusCode(HttpStatus.SC_OK);
-//    }
     @Test
     public void addMilestone(){
         int projectId = 2;
