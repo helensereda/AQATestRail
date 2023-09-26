@@ -63,9 +63,9 @@ public class PositiveTest extends BaseTest {
                 ReadProperties.password()
         );
         dashboardStep.addProject();
-        Project ProjectBuilder = new Project.Builder()
-                .withProjectName("Test")
-                .withAnnouncement("Test")
+        Project ProjectBuilder = Project.builder()
+                .name("Test")
+                .announcement("Test")
                 .build();
         new AddProjectPage(driver).addProject(ProjectBuilder);
         Thread.sleep(5000);
