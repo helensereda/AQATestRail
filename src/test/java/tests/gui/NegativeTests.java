@@ -6,6 +6,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.SettingsPage;
 import utils.configuration.ReadProperties;
+
 public class NegativeTests extends BaseTest {
     static Logger logger = LogManager.getLogger(NegativeTests.class);
 
