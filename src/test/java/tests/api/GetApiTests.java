@@ -8,9 +8,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.annotations.Test;
 import utils.configuration.ReadProperties;
-
 import static io.restassured.RestAssured.given;
-
 public class GetApiTests extends BaseApiTest {
     static Logger logger = LogManager.getLogger(GetApiTests.class);
     @Test

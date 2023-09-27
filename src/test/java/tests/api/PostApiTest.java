@@ -16,6 +16,7 @@ public class PostApiTest extends BaseApiTest {
     static Logger logger = LogManager.getLogger(PostApiTest.class);
     @Test
     public void addMilestone(){
+        logger.info(token);
         int projectId = 2;
         Milestone expectedMilestone = Milestone.builder()
                 .name("TestMilestone 1")
