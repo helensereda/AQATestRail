@@ -11,7 +11,6 @@ import io.restassured.mapper.ObjectMapperType;
 import utils.Endpoints;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.is;
-
 public class PostApiTest extends BaseApiTest {
     static Logger logger = LogManager.getLogger(PostApiTest.class);
     @Test
