@@ -8,7 +8,7 @@ import org.openqa.selenium.WebElement;
 public class TestPage extends BasePage {
     // Блок описания локаторов для элементов
     private final By headerTitleLabelLocator = By.xpath("//div[contains(@class, 'content-header-title') and contains(text(), 'Test')]");
-    private final By addTestRunLocator = By.xpath("//*[@id=\"navigation-overview-addrunssuite\"]");
+    private final By addTestRunLocator = By.xpath("//*[@id=\"navigation-runs-add\"]");
     public TestPage(WebDriver driver) {
         super(driver);
 

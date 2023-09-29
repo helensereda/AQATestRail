@@ -124,8 +124,7 @@ public class PositiveTest extends BaseTest {
                 addTestRunStep.addFile();
         WaitService waitService = new WaitService(driver);
         AddTestRunPage addTestRunPage = new AddTestRunPage(driver);
-       // WebElement fileUploadElement = waitService.waitForExists(By.xpath("/html/body/input[2]"));
-        WebElement fileUploadElement = waitService.waitForExists(By.xpath("//input[@type='file']"));
+        WebElement fileUploadElement = waitService.waitForExists(By.xpath("//html/body/input[3]"));
         String pathToFile = PositiveTest.class.getClassLoader().getResource("download.jpeg").getPath();
         fileUploadElement.sendKeys(pathToFile.substring(1,pathToFile.length()));
         addTestRunPage.getButtonSubmit().click();

@@ -10,7 +10,7 @@ public class DashboardPage extends BasePage {
 
     // Блок описания локаторов для элементов
     private final By headerTitleLabelLocator = By.xpath("//div[contains(@class, 'content-header-title') and contains(text(), 'All Projects')]");
-    private final By testLocator = By.xpath("//*[@id=\"project-2\"]/div[2]/div[1]/a");
+    private final By testLocator = By.xpath("//*[@id=\"project-6\"]/div[2]/div[2]/a[3]");
     private final By addButtonLocator = By.id("sidebar-projects-add");
 
 
