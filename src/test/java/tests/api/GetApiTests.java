@@ -1,6 +1,7 @@
 package tests.api;
 
 import baseEntities.BaseApiTest;
+import io.qameta.allure.Description;
 import io.restassured.http.ContentType;
 import org.apache.http.HttpStatus;
 import org.apache.http.protocol.HTTP;
@@ -11,7 +12,8 @@ import utils.configuration.ReadProperties;
 import static io.restassured.RestAssured.given;
 public class GetApiTests extends BaseApiTest {
     static Logger logger = LogManager.getLogger(GetApiTests.class);
-    @Test
+    @Test(description = "получение всех пользователей", groups = "regression")
+    @Description("Positive test")
     public void getAllUsers() {
         String endpoint = "/index.php?/api/v2/get_users";
 
@@ -27,7 +29,8 @@ public class GetApiTests extends BaseApiTest {
                 .log().body()
                 .statusCode(HttpStatus.SC_OK);
     }
-    @Test
+    @Test(description = "получение всех проектов", groups = "regression")
+    @Description("Positive test")
     public void getAllProjects() {
         String endpoint = "/index.php?/api/v2/get_projects";
 
@@ -43,7 +46,8 @@ public class GetApiTests extends BaseApiTest {
                 .log().body()
                 .statusCode(HttpStatus.SC_OK);
     }
-    @Test
+    @Test(description = "не получение всех проектов", groups = "regression")
+    @Description("Negative test")
     public void getNegativeTestForProject() {
         String endpoint = "/index.php?/api/v2/get_projects";
 
