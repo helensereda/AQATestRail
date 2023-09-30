@@ -8,6 +8,7 @@ import org.apache.http.protocol.HTTP;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.annotations.Test;
+import utils.Endpoints;
 import utils.configuration.ReadProperties;
 import static io.restassured.RestAssured.given;
 public class GetApiTests extends BaseApiTest {
@@ -15,7 +16,6 @@ public class GetApiTests extends BaseApiTest {
     @Test(description = "получение всех пользователей", groups = "regression")
     @Description("Positive test")
     public void getAllUsers() {
-        String endpoint = "/index.php?/api/v2/get_users";
 
         logger.info(token);
 
@@ -23,7 +23,7 @@ public class GetApiTests extends BaseApiTest {
                 .auth().preemptive().basic(ReadProperties.username(), ReadProperties.password())
                 .header(HTTP.CONTENT_TYPE, ContentType.JSON)
                 .when()
-                .get(endpoint)
+                .get(Endpoints.GET_ALL_USERS)
                 .then()
                 .log().status()
                 .log().body()
@@ -32,7 +32,6 @@ public class GetApiTests extends BaseApiTest {
     @Test(description = "получение всех проектов", groups = "regression")
     @Description("Positive test")
     public void getAllProjects() {
-        String endpoint = "/index.php?/api/v2/get_projects";
 
         logger.info(token);
 
@@ -40,7 +39,7 @@ public class GetApiTests extends BaseApiTest {
                 .auth().preemptive().basic(ReadProperties.username(), ReadProperties.password())
                 .header(HTTP.CONTENT_TYPE, ContentType.JSON)
                 .when()
-                .get(endpoint)
+                .get(Endpoints.GET_ALL_PROJECTS)
                 .then()
                 .log().status()
                 .log().body()
@@ -49,7 +48,6 @@ public class GetApiTests extends BaseApiTest {
     @Test(description = "не получение всех проектов", groups = "regression")
     @Description("Negative test")
     public void getNegativeTestForProject() {
-        String endpoint = "/index.php?/api/v2/get_projects";
 
         logger.info(token);
 
@@ -57,7 +55,7 @@ public class GetApiTests extends BaseApiTest {
                 .auth().preemptive().basic(ReadProperties.username(), ReadProperties.password())
                 .header(HTTP.CONTENT_TYPE, ContentType.JSON)
                 .when()
-                .get(endpoint)
+                .get(Endpoints.GET_ALL_PROJECTS)
                 .then()
                 .log().status()
                 .log().body()
