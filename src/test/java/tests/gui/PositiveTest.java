@@ -24,6 +24,7 @@ public class PositiveTest extends BaseTest {
     @Description("Positive test")
     public void BoundaryTest() throws InterruptedException{
 
+        WaitService waitService = new WaitService(driver);
         loginStep.successLogin(
                 ReadProperties.username(),
                 ReadProperties.password()
@@ -38,9 +39,9 @@ public class PositiveTest extends BaseTest {
                 "Field Password is too short (5 characters required).");
         Assert.assertEquals(
                 settingsStep.changePswWithLimited("1121231121211212311212112123112121121231121211" +
-                        "21231121211212311212112123112121121231121211212311212112123112121121231" +
-                        "121211212311").getErrorTextElement().getText(),
-                "Field Password is too long (128 characters at most).");
+                                "21231121211212311212112123112121121231121211212311212112123112121121231" +
+                                "121211212311").getErrorTextElement().getText(),
+                        "Field Password is too long (128 characters at most).");
     }
     @Test(description = "тест на проверку всплывающего сообщения", groups = "regression", priority = 6)
     @Description("Positive test")
@@ -84,9 +85,8 @@ public class PositiveTest extends BaseTest {
         ProjectsPage projectsPage = new ProjectsPage(driver);
         projectsPage.openPageByUrl();
 
-        TableCell cell = projectsPage.getProjectsTable().getCell("Project", 1);
+        TableCell cell = projectsPage.getProjectsTable().getCell("Project", 2);
         cell.getDeleteLink().click();
-        Thread.sleep(3000);
         projectStep.deleteProject();
     }
     @Test(description = "тест отображения диалогового окна", groups = "regression",priority = 2)
@@ -102,7 +102,6 @@ public class PositiveTest extends BaseTest {
 
         TableCell cell = projectsPage.getProjectsTable().getCell("Project", 1);
         cell.getDeleteLink().click();
-        Thread.sleep(3000);
         projectsPage.isDialogTitleDisplayed();
     }
     @Test(description = "тест на загрузку файла", groups = "regression", priority = 3)
@@ -126,7 +125,6 @@ public class PositiveTest extends BaseTest {
         String pathToFile = PositiveTest.class.getClassLoader().getResource("download.jpeg").getPath();
         fileUploadElement.sendKeys(pathToFile.substring(1,pathToFile.length()));
         addTestRunPage.getButtonSubmit().click();
-        Thread.sleep(3000);
-        Assert.assertTrue(driver.findElement(By.id("libraryDeleteAttachment")).isDisplayed());
+        Assert.assertTrue(waitService.waitForVisibility(driver.findElement(By.id("libraryDeleteAttachment"))).isDisplayed());
     }
 }

@@ -12,7 +12,7 @@ public class NegativeTests extends BaseTest {
     static Logger logger = LogManager.getLogger(NegativeTests.class);
     @Test(description = "тест на использование некорректных данных", groups = "regression")
     @Description("Negative test")
-    public void incorrectDateTest() {
+    public void incorrectDataTest() {
         Assert.assertEquals(
                 loginStep.negativeLogin("test@mail.ru", ReadProperties.password()).getErrorTextElement().getText(),
                 "Email/Login or Password is incorrect. Please try again."
@@ -24,7 +24,7 @@ public class NegativeTests extends BaseTest {
     }
     @Test(description = "тест на ввод данных превышающих допустимые", groups = "regression")
     @Description("Negative test")
-    public void incorrectPermissibleDateTest() throws InterruptedException {
+    public void incorrectPermissibleDataTest() throws InterruptedException {
         loginStep.successLogin(
                 ReadProperties.username(),
                 ReadProperties.password()

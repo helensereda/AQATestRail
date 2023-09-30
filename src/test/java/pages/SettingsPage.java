@@ -4,6 +4,7 @@ import baseEntities.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import services.WaitService;
 
 public class SettingsPage extends BasePage {
     private final static String pagePath = "/index.php?/mysettings";
@@ -84,8 +85,8 @@ public class SettingsPage extends BasePage {
     }
     public void changePswWithLimited(String psw) throws InterruptedException {
         getEnterPswInput().sendKeys(psw);
-        Thread.sleep(5000);
+        Thread.sleep(500);
         getOkButton().click();
-        Thread.sleep(5000);
+        Thread.sleep(500);
     }
 }

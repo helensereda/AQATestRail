@@ -11,29 +11,23 @@ public class TestPage extends BasePage {
     private final By addTestRunLocator = By.xpath("//*[@id=\"navigation-runs-add\"]");
     public TestPage(WebDriver driver) {
         super(driver);
-
     }
-
     @Override
     protected By getPageIdentifier() {
         return null;
     }
-
     @Override
     protected By getTitle() {
         return headerTitleLabelLocator;
     }
-
     @Override
     protected By getTitle1() {
         return null;
     }
-
     @Override
     protected By getDialogTitle() {
         return null;
     }
-
     public WebElement getClickButton() {
         return driver.findElement(addTestRunLocator);
     }
