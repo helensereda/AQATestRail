@@ -1,6 +1,7 @@
 package tests.api;
 
 import baseEntities.BaseApiTest;
+import io.qameta.allure.Description;
 import models.Milestone;
 import org.apache.http.HttpStatus;
 import org.apache.logging.log4j.LogManager;
@@ -13,10 +14,11 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.is;
 public class PostApiTest extends BaseApiTest {
     static Logger logger = LogManager.getLogger(PostApiTest.class);
-    @Test
+    @Test(description = "тест на создание milestone", groups = "regression")
+    @Description("Positive test")
     public void addMilestone(){
         logger.info(token);
-        int projectId = 2;
+        int projectId = 10;
         Milestone expectedMilestone = Milestone.builder()
                 .name("TestMilestone 1")
                 .build();

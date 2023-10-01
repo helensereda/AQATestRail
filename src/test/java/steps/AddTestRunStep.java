@@ -12,7 +12,7 @@ public class AddTestRunStep extends BaseStep {
 
     public AddTestRunPage addFile() throws InterruptedException {
         addTestRunPage.clickButton();
-        Thread.sleep(5000);
+        Thread.sleep(3000);
         return addTestRunPage;
     }
 }

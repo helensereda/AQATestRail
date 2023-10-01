@@ -24,13 +24,11 @@ public abstract class BasePage {
     public boolean isPageOpened() {
         return driver.findElement(getPageIdentifier()).isDisplayed();
     }
-    public boolean getTitleInfo() throws InterruptedException {
-        Thread.sleep(2000);
-        return driver.findElement(getTitle()).isDisplayed();
+    public boolean getTitleInfo(){
+        return waitService.waitForVisibility(driver.findElement(getTitle())).isDisplayed();
     }
-    public boolean getTitleCase() throws InterruptedException {
-        Thread.sleep(2000);
-        return driver.findElement(getTitle1()).isDisplayed();
+    public boolean getTitleCase(){
+        return waitService.waitForVisibility(driver.findElement(getTitle1())).isDisplayed();
     }
     public boolean isDialogTitleDisplayed() throws InterruptedException {
         Thread.sleep(2000);
