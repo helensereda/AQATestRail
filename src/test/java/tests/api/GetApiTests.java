@@ -46,21 +46,21 @@ public class GetApiTests extends BaseApiTest {
                 .log().body()
                 .statusCode(HttpStatus.SC_OK);
     }
-//    @Test(description = "не получение всех проектов", groups = "regression")
-//    @Description("Negative test")
-//    @Tag("FailureTest")
-//    public void getNegativeTestForProject() {
-//
-//        logger.info(token);
-//
-//        given()
-//                .auth().preemptive().basic(ReadProperties.username(), ReadProperties.password())
-//                .header(HTTP.CONTENT_TYPE, ContentType.JSON)
-//                .when()
-//                .get(Endpoints.GET_ALL_PROJECTS)
-//                .then()
-//                .log().status()
-//                .log().body()
-//                .statusCode(HttpStatus.SC_BAD_REQUEST);
-//    }
+    @Test(description = "не получение всех проектов", groups = "regression")
+    @Description("Negative test")
+    @Tag("FailureTest")
+    public void getNegativeTestForProject() {
+
+        logger.info(token);
+
+        given()
+                .auth().preemptive().basic(ReadProperties.username(), ReadProperties.password())
+                .header(HTTP.CONTENT_TYPE, ContentType.JSON)
+                .when()
+                .get(Endpoints.GET_ALL_PROJECTS)
+                .then()
+                .log().status()
+                .log().body()
+                .statusCode(HttpStatus.SC_BAD_REQUEST);
+    }
 }

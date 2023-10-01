@@ -40,10 +40,10 @@ public class NegativeTests extends BaseTest {
                         "121211212311").getErrorTextElement().getText(),
                 "Field Password is too long (128 characters at most).");
     }
-//    @Test(description = "тест воспроизводящий любой дефект", groups = "regression")
-//    @Description("Negative test")
-//    public void screenShortTest() {
-//        Assert.assertTrue(false);
-//    }
+    @Test(description = "тест воспроизводящий любой дефект", groups = "regression")
+    @Description("Negative test")
+    public void screenShortTest() {
+        Assert.assertTrue(false);
+    }
 
 }
