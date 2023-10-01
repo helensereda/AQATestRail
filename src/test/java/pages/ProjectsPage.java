@@ -5,10 +5,11 @@ import elements.Table;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ProjectsPage extends BasePage {
-    private final static String pagePath = "/index.php?/admin/projects/overview";
 
+    private final static String pagePath = "/index.php?/admin/projects/overview";
     // Блок описания локаторов для элементов
     private final By headerTitleLabelLocator = By.className("page_title");
     private final By dialogTitleLabelLocator = By.className("ui-dialog-title");

@@ -1,6 +1,5 @@
 package tests.gui;
 import baseEntities.BaseTest;
-import io.qameta.allure.testng.Tag;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
@@ -16,12 +15,13 @@ public class NegativeTests extends BaseTest {
     public void incorrectDataTest() {
         Assert.assertEquals(
                 loginStep.negativeLogin("test@mail.ru", ReadProperties.password()).getErrorTextElement().getText(),
-                "Email/Login or Password is incorrect. Please try again."
-        );
+                "Email/Login or Password is incorrect. Please try again.");
+        logger.error("error message -  username is incorrect");
         Assert.assertEquals(
                 loginStep.negativeLogin(ReadProperties.username(), "Q_12345").getErrorTextElement().getText(),
                 "Email/Login or Password is incorrect. Please try again.",
                 "");
+        logger.error("error message -  password is incorrect");
     }
     @Test(description = "тест на ввод данных превышающих допустимые", groups = "regression")
     @Description("Negative test")
@@ -30,7 +30,6 @@ public class NegativeTests extends BaseTest {
                 ReadProperties.username(),
                 ReadProperties.password()
         );
-
         SettingsPage settingsPage = new SettingsPage(driver);
         settingsPage.openPageByUrl();
         Assert.assertEquals(
@@ -39,6 +38,7 @@ public class NegativeTests extends BaseTest {
                         "21231121211212311212112123112121121231121211212311212112123112121121231" +
                         "121211212311").getErrorTextElement().getText(),
                 "Field Password is too long (128 characters at most).");
+        logger.error("error message -  incorrect change password");
     }
     @Test(description = "тест воспроизводящий любой дефект", groups = "regression")
     @Description("Negative test")
