@@ -2,6 +2,7 @@ package tests.api;
 
 import baseEntities.BaseApiTest;
 import io.qameta.allure.Description;
+import io.qameta.allure.testng.Tag;
 import io.restassured.http.ContentType;
 import org.apache.http.HttpStatus;
 import org.apache.http.protocol.HTTP;
@@ -47,6 +48,7 @@ public class GetApiTests extends BaseApiTest {
     }
     @Test(description = "не получение всех проектов", groups = "regression")
     @Description("Negative test")
+    @Tag("FailureTest")
     public void getNegativeTestForProject() {
 
         logger.info(token);

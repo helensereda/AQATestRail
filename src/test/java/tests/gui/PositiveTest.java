@@ -85,7 +85,7 @@ public class PositiveTest extends BaseTest {
         ProjectsPage projectsPage = new ProjectsPage(driver);
         projectsPage.openPageByUrl();
 
-        TableCell cell = projectsPage.getProjectsTable().getCell("Project", 2);
+        TableCell cell = projectsPage.getProjectsTable().getCell("Project", 1);
         cell.getDeleteLink().click();
         projectStep.deleteProject();
     }
@@ -107,7 +107,6 @@ public class PositiveTest extends BaseTest {
     @Test(description = "тест на загрузку файла", groups = "regression", priority = 3)
     @Description("Positive test")
     public void FileUploadTest() throws InterruptedException {
-
         Assert.assertTrue(
                 loginStep.successLogin(ReadProperties.username(), ReadProperties.password()
                 ).isPageOpened()

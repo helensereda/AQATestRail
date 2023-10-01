@@ -29,7 +29,6 @@ public class SettingsStep extends BaseStep {
     }
     public SettingsPage changePswWithLimited(String psw) throws InterruptedException {
         settingsPage.changePswWithLimited(psw);
-
         return settingsPage;
     }
 }

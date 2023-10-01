@@ -14,7 +14,7 @@ public class DashboardStep extends BaseStep {
         super(driver);
     }
 
-    public TestPage addCase() {
+    public TestPage addCase() throws InterruptedException {
         dashboardPage.clickButton();
         return testPage;
     }

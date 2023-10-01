@@ -55,7 +55,7 @@ public class BrowserFactory {
         chromeOptions.addArguments("--silent");
         chromeOptions.addArguments("--start-maximized");
         chromeOptions.addArguments("--incognito");
-        chromeOptions.addArguments("--headless=new");
+       // chromeOptions.addArguments("--headless=new");
 
         return chromeOptions;
     }
