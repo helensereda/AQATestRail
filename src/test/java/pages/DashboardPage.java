@@ -10,7 +10,7 @@ public class DashboardPage extends BasePage {
 
     // Блок описания локаторов для элементов
     private final By headerTitleLabelLocator = By.xpath("//div[contains(@class, 'content-header-title') and contains(text(), 'All Projects')]");
-    private final By testLocator = By.xpath("//*[@id=\"project-10\"]/div[2]/div[2]/a[3]");
+    private final By testLocator = By.linkText("Test Runs");
     private final By addButtonLocator = By.id("sidebar-projects-add");
 
 
@@ -29,12 +29,12 @@ public class DashboardPage extends BasePage {
     }
 
     @Override
-    protected By getTitle() {
+    protected By getTestRunsPage() {
         return null;
     }
 
     @Override
-    protected By getTitle1() {
+    protected By getAddTestRunPage() {
         return null;
     }
 

@@ -26,12 +26,12 @@ public class LoginPage extends BasePage {
     }
 
     @Override
-    protected By getTitle() {
+    protected By getTestRunsPage() {
         return null;
     }
 
     @Override
-    protected By getTitle1() {
+    protected By getAddTestRunPage() {
         return null;
     }
 

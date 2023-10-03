@@ -13,7 +13,7 @@ public class AddProjectPage extends BasePage {
 
     // Блок описания локаторов для элементов
     private final By headerTitleLabelLocator = By.xpath("//div[contains(@class, 'content-header-title') and contains(text(), 'Add Project')]");
-    private final By nameLocator = By.xpath("//*[@id=\"name\"]");
+    private final By nameLocator = By.id("name");
     private final By announcementLocator = By.id("announcement_display");
     private final By addProjectButtonLocator = By.id("accept");
     // Блок инициализации
@@ -27,12 +27,12 @@ public class AddProjectPage extends BasePage {
     }
 
     @Override
-    protected By getTitle() {
+    protected By getTestRunsPage() {
         return null;
     }
 
     @Override
-    protected By getTitle1() {
+    protected By getAddTestRunPage() {
         return null;
     }
 

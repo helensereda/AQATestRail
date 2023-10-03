@@ -12,23 +12,21 @@ public abstract class BasePage {
         this.driver = driver;
         this.waitService = new WaitService(driver);
     }
-
     public void openPageByUrl(String pagePath) {
         driver.get(ReadProperties.getUrl() + pagePath);
     }
-
     protected abstract By getPageIdentifier();
-    protected abstract By getTitle();
-    protected abstract By getTitle1();
+    protected abstract By getTestRunsPage();
+    protected abstract By getAddTestRunPage();
     protected abstract By getDialogTitle();
     public boolean isPageOpened() {
         return driver.findElement(getPageIdentifier()).isDisplayed();
     }
-    public boolean getTitleInfo(){
-        return waitService.waitForVisibility(driver.findElement(getTitle())).isDisplayed();
+    public boolean getTitleRunPage(){
+        return waitService.waitForVisibility(driver.findElement(getTestRunsPage())).isDisplayed();
     }
-    public boolean getTitleCase(){
-        return waitService.waitForVisibility(driver.findElement(getTitle1())).isDisplayed();
+    public boolean getTitleTestRunPage(){
+        return waitService.waitForVisibility(driver.findElement(getAddTestRunPage())).isDisplayed();
     }
     public boolean isDialogTitleDisplayed() throws InterruptedException {
         Thread.sleep(2000);

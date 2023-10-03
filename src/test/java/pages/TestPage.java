@@ -17,11 +17,11 @@ public class TestPage extends BasePage {
         return null;
     }
     @Override
-    protected By getTitle() {
+    protected By getTestRunsPage() {
         return headerTitleLabelLocator;
     }
     @Override
-    protected By getTitle1() {
+    protected By getAddTestRunPage() {
         return null;
     }
     @Override

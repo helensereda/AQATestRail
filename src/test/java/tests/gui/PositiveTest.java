@@ -123,10 +123,10 @@ public class PositiveTest extends BaseTest {
                 ).isPageOpened()
         );
         Assert.assertTrue(
-                dashboardStep.addCase().getTitleInfo()
+                dashboardStep.addCase().getTitleRunPage()
         );
         Assert.assertTrue(
-                testStep.addTest().getTitleCase()
+                testStep.addTest().getTitleTestRunPage()
         );
                 addTestRunStep.addFile();
         WaitService waitService = new WaitService(driver);
