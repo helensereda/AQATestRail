@@ -10,7 +10,7 @@ public class ProjectStep extends BaseStep {
     public ProjectStep(WebDriver driver) {
         super(driver);
     }
-    public ProjectsPage deleteProject() {
+    public ProjectsPage deleteProject() throws InterruptedException {
         projectsPage.deleteProject();
         return projectsPage;
     }
