@@ -10,6 +10,7 @@ import io.qameta.allure.Description;
 
 public class NegativeTests extends BaseTest {
     static Logger logger = LogManager.getLogger(NegativeTests.class);
+
     @Test(description = "тест на использование некорректных данных", groups = "regression")
     @Description("Negative test")
     public void incorrectDataTest() {
@@ -23,6 +24,7 @@ public class NegativeTests extends BaseTest {
                 "");
         logger.error("error message -  password is incorrect");
     }
+
     @Test(description = "тест на ввод данных превышающих допустимые", groups = "regression")
     @Description("Negative test")
     public void incorrectPermissibleDataTest() throws InterruptedException {
@@ -40,10 +42,10 @@ public class NegativeTests extends BaseTest {
                 "Field Password is too long (128 characters at most).");
         logger.error("error message -  incorrect change password");
     }
+
     @Test(description = "тест воспроизводящий любой дефект", groups = "regression")
     @Description("Negative test")
     public void screenShortTest() {
         Assert.assertTrue(false);
     }
-
 }

@@ -19,8 +19,12 @@ public abstract class BasePage {
     protected abstract By getTestRunsPage();
     protected abstract By getAddTestRunPage();
     protected abstract By getDialogTitle();
+    protected abstract By getEnterPasswordTitle();
     public boolean isPageOpened() {
         return driver.findElement(getPageIdentifier()).isDisplayed();
+    }
+    public boolean isPopUpOpened() {
+        return driver.findElement(getEnterPasswordTitle()).isDisplayed();
     }
     public boolean getTitleRunPage(){
         return waitService.waitForVisibility(driver.findElement(getTestRunsPage())).isDisplayed();

@@ -13,7 +13,6 @@ public class DashboardPage extends BasePage {
     private final By testLocator = By.linkText("Test Runs");
     private final By addButtonLocator = By.id("sidebar-projects-add");
 
-
     public SideMenuPage sideMenuPage;
 
     // Блок инициализации
@@ -40,6 +39,11 @@ public class DashboardPage extends BasePage {
 
     @Override
     protected By getDialogTitle() {
+        return null;
+    }
+
+    @Override
+    protected By getEnterPasswordTitle() {
         return null;
     }
 

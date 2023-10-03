@@ -2,7 +2,6 @@ package elements;
 
 import org.openqa.selenium.*;
 import services.WaitService;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,7 +15,6 @@ public class UIElement implements WebElement {
         this.driver = driver;
         this.by = by;
         this.waitService = new WaitService(driver);
-        //this.webElement = driver.findElement(by);
         this.webElement = waitService.waitForExists(by);
     }
 
@@ -25,7 +23,6 @@ public class UIElement implements WebElement {
         this.webElement = webElement;
         this.waitService = new WaitService(driver);
     }
-
 
     @Override
     public void click() {

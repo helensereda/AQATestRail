@@ -5,10 +5,8 @@ import elements.Table;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ProjectsPage extends BasePage {
-
     private final static String pagePath = "/index.php?/admin/projects/overview";
     // Блок описания локаторов для элементов
     private final By headerTitleLabelLocator = By.className("page_title");
@@ -19,7 +17,6 @@ public class ProjectsPage extends BasePage {
     // Блок инициализации
     public ProjectsPage(WebDriver driver) {
         super(driver);
-
     }
 
     @Override
@@ -42,12 +39,15 @@ public class ProjectsPage extends BasePage {
     }
 
     // Блок атомарных методов
-    public WebElement getHeaderTitle() {
-        return driver.findElement(headerTitleLabelLocator);
-    }
     public By getDialogTitle() {
         return dialogTitleLabelLocator;
     }
+
+    @Override
+    protected By getEnterPasswordTitle() {
+        return null;
+    }
+
     public WebElement getCheckbox() {
         return driver.findElement(checkboxLocator);
     }

@@ -3,14 +3,10 @@ package tests.gui;
 import baseEntities.BaseTest;
 import elements.TableCell;
 import io.qameta.allure.Description;
-import lombok.extern.slf4j.Slf4j;
 import models.Project;
+import org.apache.commons.lang3.SystemUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.AddProjectPage;
@@ -19,17 +15,12 @@ import pages.ProjectsPage;
 import pages.SettingsPage;
 import services.WaitService;
 import utils.configuration.ReadProperties;
-import org.openqa.selenium.WebElement;
-
-import java.time.Instant;
 
 public class PositiveTest extends BaseTest {
     static Logger logger = LogManager.getLogger(PositiveTest.class);
     @Test(description = "тест на проверку поля для ввода на граничные значения", groups = "regression", priority = 1)
     @Description("Positive test")
     public void BoundaryTest() throws InterruptedException{
-
-        WaitService waitService = new WaitService(driver);
         loginStep.successLogin(
                 ReadProperties.username(),
                 ReadProperties.password()
@@ -51,10 +42,10 @@ public class PositiveTest extends BaseTest {
                         "Field Password is too long (128 characters at most).");
         logger.error("error message for field Password");
     }
+
     @Test(description = "тест на проверку всплывающего сообщения", groups = "regression", priority = 6)
     @Description("Positive test")
     public void PopUpWindowTest() {
-
         loginStep.successLogin(
                 ReadProperties.username(),
                 ReadProperties.password()
@@ -62,13 +53,15 @@ public class PositiveTest extends BaseTest {
         SettingsPage settingsPage = new SettingsPage(driver);
         settingsPage.openPageByUrl();
         settingsPage.showWindow("World@4r");
-        Assert.assertTrue(driver.findElement(By.id("ui-dialog-title-userPasswordDialog")).isDisplayed());
+        Assert.assertTrue(
+                settingsStep.showPopUp().isPopUpOpened()
+        );
         logger.info("pop-up window is displayed");
     }
+
     @Test(description = "тест на создание сущности", groups = {"smoke", "regression"}, priority = 4)
     @Description("Positive test")
     public void AddProjectBuilderTest()  {
-
         loginStep.successLogin(
                 ReadProperties.username(),
                 ReadProperties.password()
@@ -83,10 +76,10 @@ public class PositiveTest extends BaseTest {
         addProjectStep.clickButton();
         logger.info("successful project creation");
     }
+
     @Test(description = "тест на удаление сущности", groups = {"smoke", "regression"}, priority = 5)
     @Description("Positive test")
     public void deleteProjectTest() throws InterruptedException {
-
         loginStep.successLogin(
                 ReadProperties.username(),
                 ReadProperties.password()
@@ -99,10 +92,10 @@ public class PositiveTest extends BaseTest {
         projectStep.deleteProject();
         logger.info("successful delete project");
     }
+
     @Test(description = "тест отображения диалогового окна", groups = "regression",priority = 2)
     @Description("Positive test")
     public void DisplayedDialogWindowTest() throws InterruptedException {
-
         loginStep.successLogin(
                 ReadProperties.username(),
                 ReadProperties.password()
@@ -115,9 +108,22 @@ public class PositiveTest extends BaseTest {
         projectsPage.isDialogTitleDisplayed();
         logger.info("dialog window is displayed");
     }
+
+    private static String checkOperateSystemAndSendPathToFile() {
+        String pathToFile;
+        if (SystemUtils.IS_OS_WINDOWS) {
+            pathToFile = AddTestRunPage.class.getClassLoader().getResource("download.jpeg").getPath()
+                    .replace("/", "\\").substring(1);
+        } else {
+            pathToFile = AddTestRunPage.class.getClassLoader().getResource("download.jpeg").getPath();
+        }
+        return pathToFile;
+    }
+
     @Test(description = "тест на загрузку файла", groups = "regression", priority = 3)
     @Description("Positive test")
     public void FileUploadTest() throws InterruptedException {
+        WaitService waitService = new WaitService(driver);
         Assert.assertTrue(
                 loginStep.successLogin(ReadProperties.username(), ReadProperties.password()
                 ).isPageOpened()
@@ -129,13 +135,8 @@ public class PositiveTest extends BaseTest {
                 testStep.addTest().getTitleTestRunPage()
         );
                 addTestRunStep.addFile();
-        WaitService waitService = new WaitService(driver);
-        AddTestRunPage addTestRunPage = new AddTestRunPage(driver);
-        WebElement fileUploadElement = waitService.waitForExists(By.xpath("//html/body/input[3]"));
-        String pathToFile = PositiveTest.class.getClassLoader().getResource("download.jpeg").getPath();
-        fileUploadElement.sendKeys(pathToFile.substring(1,pathToFile.length()));
-        addTestRunPage.getButtonSubmit().click();
-        Assert.assertTrue(waitService.waitForVisibility(driver.findElement(By.id("libraryDeleteAttachment"))).isDisplayed());
+        addTestRunStep.uploadAvatar(PositiveTest.checkOperateSystemAndSendPathToFile());
+        Assert.assertTrue(addTestRunStep.isDisplayedButtonDelete());
         logger.info("file is uploaded");
     }
 }

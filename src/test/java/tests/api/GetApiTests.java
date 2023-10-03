@@ -30,6 +30,7 @@ public class GetApiTests extends BaseApiTest {
                 .log().body()
                 .statusCode(HttpStatus.SC_OK);
     }
+
     @Test(description = "получение всех проектов", groups = "regression")
     @Description("Positive test")
     public void getAllProjects() {
@@ -46,6 +47,7 @@ public class GetApiTests extends BaseApiTest {
                 .log().body()
                 .statusCode(HttpStatus.SC_OK);
     }
+
     @Test(description = "не получение всех проектов", groups = "regression")
     @Description("Negative test")
     @Tag("FailureTest")

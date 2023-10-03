@@ -2,17 +2,11 @@ package elements;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-
 import java.util.ArrayList;
 
 public class TableRow {
     private UIElement uiElement;
     private WebDriver driver;
-
-    public TableRow(WebDriver driver, By by) {
-        this.driver = driver;
-        this.uiElement = new UIElement(driver, by);
-    }
 
     public TableRow(WebDriver driver, UIElement uiElement) {
         this.uiElement = uiElement;

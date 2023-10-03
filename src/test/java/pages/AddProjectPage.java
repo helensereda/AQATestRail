@@ -6,8 +6,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import java.util.Date;
-
 public class AddProjectPage extends BasePage {
     private final static String pagePath = "/index.php?/dashboard/";
 
@@ -16,6 +14,7 @@ public class AddProjectPage extends BasePage {
     private final By nameLocator = By.id("name");
     private final By announcementLocator = By.id("announcement_display");
     private final By addProjectButtonLocator = By.id("accept");
+
     // Блок инициализации
     public AddProjectPage(WebDriver driver) {
         super(driver);
@@ -41,14 +40,11 @@ public class AddProjectPage extends BasePage {
         return null;
     }
 
-    public void openPageByUrl() {
-        super.openPageByUrl(pagePath);
+    @Override
+    protected By getEnterPasswordTitle() {
+        return null;
     }
 
-    // Блок атомарных методов
-    public WebElement getHeaderTitle() {
-        return driver.findElement(headerTitleLabelLocator);
-    }
     public WebElement getName() {
         return driver.findElement(nameLocator);
     }

@@ -12,10 +12,6 @@ public class TableCell {
         this.uiElement = uiElement;
     }
 
-    public UIElement getAsUIElement() {
-        return uiElement;
-    }
-
     public UIElement getDeleteLink() {
         return uiElement.findElement(By.xpath("//*[@id=\"content-inner\"]/table/tbody/tr[2]/td[3]/a/div"));
     }
