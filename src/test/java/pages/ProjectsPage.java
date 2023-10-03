@@ -15,7 +15,7 @@ public class ProjectsPage extends BasePage {
     private final By dialogTitleLabelLocator = By.className("ui-dialog-title");
     private final By projectsTableLocator = By.cssSelector("#content-inner table");
     private final By checkboxLocator = By.xpath("(//input[@type='checkbox'])[7]");
-    private final By deleteButtonLocator = By.xpath("//a[contains(text(),'OK')]");
+    private final By deleteButtonLocator = By.xpath("(//a[contains(text(),'OK')])[3]");
     // Блок инициализации
     public ProjectsPage(WebDriver driver) {
         super(driver);
