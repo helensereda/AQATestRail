@@ -6,7 +6,6 @@ import org.apache.http.protocol.HTTP;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
 import utils.configuration.ReadProperties;
-
 import static io.restassured.RestAssured.given;
 
 public class BaseApiTest {

@@ -4,10 +4,10 @@ import baseEntities.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import services.WaitService;
 
 public class SettingsPage extends BasePage {
     private final static String pagePath = "/index.php?/mysettings";
+
     // Блок описания локаторов для элементов
     private final By headerTitleLabelLocator = By.xpath("//div[contains(@class, 'ui-dialog-title') and contains(text(), 'Enter Password')]");
     private final By pswInputLocator = By.id("password");
@@ -17,29 +17,32 @@ public class SettingsPage extends BasePage {
     private final By okButtonLocator = By.id("userPasswordSubmit");
     private final By successTextLocator = By.className("message-success");
     private final By errorTextLocator = By.id("userPasswordErrors");
+    private final By popUpTitleLocator = By.id("ui-dialog-title-userPasswordDialog");
+
     // Блок инициализации
     public SettingsPage(WebDriver driver) {
         super(driver);
     }
-
     @Override
     protected By getPageIdentifier() {
         return headerTitleLabelLocator;
     }
-
     @Override
-    protected By getTitle() {
+    protected By getTestRunsPage() {
         return null;
     }
-
     @Override
-    protected By getTitle1() {
+    protected By getAddTestRunPage() {
         return null;
     }
-
     @Override
     protected By getDialogTitle() {
         return null;
+    }
+
+    @Override
+    protected By getEnterPasswordTitle() {
+        return popUpTitleLocator;
     }
 
     public void openPageByUrl() {
@@ -63,11 +66,10 @@ public class SettingsPage extends BasePage {
     public WebElement getSuccessTextElement() {
         return driver.findElement(successTextLocator);
     }
-
-
     public WebElement getErrorTextElement() {
         return driver.findElement(errorTextLocator);
     }
+
     //Блок комплексных методов
     public void changePsw(String psw) throws InterruptedException {
         getPswInput().sendKeys(psw);

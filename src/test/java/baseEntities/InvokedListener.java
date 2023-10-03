@@ -13,7 +13,6 @@ import org.testng.ITestResult;
 public class InvokedListener implements IInvokedMethodListener {
 
     public void afterInvocation(IInvokedMethod method, ITestResult result) {
-        //System.out.println("This method is invoked after every config method - " + method.getTestMethod().getMethodName());
 
         if (result.getStatus() == ITestResult.FAILURE) {
             ITestContext iTestContext = result.getTestContext();

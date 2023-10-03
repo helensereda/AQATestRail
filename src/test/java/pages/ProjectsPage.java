@@ -8,17 +8,15 @@ import org.openqa.selenium.WebElement;
 
 public class ProjectsPage extends BasePage {
     private final static String pagePath = "/index.php?/admin/projects/overview";
-
     // Блок описания локаторов для элементов
     private final By headerTitleLabelLocator = By.className("page_title");
     private final By dialogTitleLabelLocator = By.className("ui-dialog-title");
     private final By projectsTableLocator = By.cssSelector("#content-inner table");
-    private final By checkboxLocator = By.xpath("//*[@id=\"deleteDialog\"]/div[2]/div/div");
-    private final By deleteButtonLocator = By.xpath("//*[@id=\"deleteDialog\"]/div[3]/a[1]");
+    private final By checkboxLocator = By.xpath("(//input[@type='checkbox'])[7]");
+    private final By deleteButtonLocator = By.xpath("(//a[contains(text(),'OK')])[3]");
     // Блок инициализации
     public ProjectsPage(WebDriver driver) {
         super(driver);
-
     }
 
     @Override
@@ -27,12 +25,12 @@ public class ProjectsPage extends BasePage {
     }
 
     @Override
-    protected By getTitle() {
+    protected By getTestRunsPage() {
         return null;
     }
 
     @Override
-    protected By getTitle1() {
+    protected By getAddTestRunPage() {
         return null;
     }
 
@@ -41,12 +39,15 @@ public class ProjectsPage extends BasePage {
     }
 
     // Блок атомарных методов
-    public WebElement getHeaderTitle() {
-        return driver.findElement(headerTitleLabelLocator);
-    }
     public By getDialogTitle() {
         return dialogTitleLabelLocator;
     }
+
+    @Override
+    protected By getEnterPasswordTitle() {
+        return null;
+    }
+
     public WebElement getCheckbox() {
         return driver.findElement(checkboxLocator);
     }
@@ -57,7 +58,8 @@ public class ProjectsPage extends BasePage {
         return new Table(driver, projectsTableLocator);
     }
 
-    public void deleteProject() {
+    public void deleteProject() throws InterruptedException {
+    Thread.sleep(5000);
     getCheckbox().click();
     getDeleteButton().click();
     }

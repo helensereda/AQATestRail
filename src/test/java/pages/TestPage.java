@@ -12,25 +12,37 @@ public class TestPage extends BasePage {
     public TestPage(WebDriver driver) {
         super(driver);
     }
+
     @Override
     protected By getPageIdentifier() {
         return null;
     }
+
     @Override
-    protected By getTitle() {
+    protected By getTestRunsPage() {
         return headerTitleLabelLocator;
     }
+
     @Override
-    protected By getTitle1() {
+    protected By getAddTestRunPage() {
         return null;
     }
+
     @Override
     protected By getDialogTitle() {
         return null;
     }
+
+
+    @Override
+    protected By getEnterPasswordTitle() {
+        return null;
+    }
+
     public WebElement getClickButton() {
         return driver.findElement(addTestRunLocator);
     }
+
     // Блок комплексных методов
     public void clickButton() {
         getClickButton().click();
